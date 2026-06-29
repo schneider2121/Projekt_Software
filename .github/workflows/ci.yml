@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  c-build-and-test:
+    name: C/C++ Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake cppcheck
+
+      - name: Build
+        run: make -C c build
+
+      - name: Test
+        run: make -C c test
+
+      - name: Static analysis
+        run: make -C c check
+
+  python-test-and-check:
+    name: Python Test & Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test
+        run: make -C python test
+
+      - name: Static analysis
+        run: make -C python check
