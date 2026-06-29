@@ -1,0 +1,15 @@
+# Build-Verzeichnisse
+build/
+**/build/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# macOS
+.DS_Store
+
+# VS Code
+.vscode/
