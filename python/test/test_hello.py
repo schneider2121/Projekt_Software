@@ -8,4 +8,4 @@ from hello import get_greeting
 
 
 def test_get_greeting_returns_hello_world():
-    assert get_greeting() == "Hello, Universe!"
+    assert get_greeting() == "Hello, World!"
