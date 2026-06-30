@@ -5,6 +5,7 @@ erstellt im Rahmen der LV Software Quality (FTB-EIT-DU SS26).
 
 ## Projektstruktur
 
+```
 Projekt_Software/
 ├── Makefile                # Haupt-Makefile, orchestriert C- und Python-Teil
 ├── c/                      # C-Teil: Hello World + Unity-Tests + cppcheck
@@ -18,6 +19,8 @@ Projekt_Software/
 │   ├── src/
 │   └── test/
 └── .github/workflows/      # GitHub Actions CI
+```
+
 
 ## Voraussetzungen
 
@@ -29,11 +32,12 @@ Projekt_Software/
 
 Im Projekt-Root:
 
+```
 make build   # baut den C/C++ Teil (CMake-Konfiguration + Kompilierung)
 make test    # führt C-Unit-Tests (Unity) und Python-Tests (pytest) aus
 make check   # statische Code-Analyse für C (cppcheck) und Python (Ruff)
 make clean   # entfernt alle Build-Artefakte
-
+```
 
 Die Targets rufen intern die jeweiligen Unterordner (`c/`, `python/`) auf.
 Der Python-Teil legt dabei automatisch ein virtuelles Environment (`.venv`)
